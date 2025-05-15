@@ -1,5 +1,5 @@
 import pyarabic.araby
-
+from typing import List,Optional
 def construct_input_out_pair_batch(
     batch, 
     system_prompt: Optional[str] = None, 
