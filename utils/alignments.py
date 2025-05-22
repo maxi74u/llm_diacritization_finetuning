@@ -1,12 +1,13 @@
 from pyarabic.araby import strip_tashkeel
 import re
 import pandas as pd
+#@title define alignment
 
 def alignment(
     raw_input: str,
     y_pred: str,
     reward: int = 1,
-    penalty: int = -10,
+    penalty: int = -1,
     worst_case: float = -1e9,
     verbose: bool = False
 ) -> str:
@@ -16,7 +17,7 @@ def alignment(
     plausible prediction by aligning diacritic-laden characters to their undiacritized forms.
 
     Args:
-        raw_input (str): The reference string.
+        raw_input (str): The reference string (typically the gold standard with diacritics).
         y_pred (str): The predicted string that will be aligned to the reference.
         reward (int, optional): Reward score for a correct character match. Defaults to 1.
         penalty (int, optional): Penalty score for a mismatch or insertion/deletion. Defaults to -10.
@@ -101,7 +102,8 @@ def alignment(
             while  it_y_pred >= 0 :
                 # if it is diacs  increase it
                 if re.match(diacs, y_pred[it_y_pred]):
-                    s+=y_pred[it_y_pred]
+                    if y_pred_no_tashkeel[i-1] in LETTERS :                      
+                      s+=y_pred[it_y_pred]
                     it_y_pred-=1
                 else:
                     it_y_pred-=1
