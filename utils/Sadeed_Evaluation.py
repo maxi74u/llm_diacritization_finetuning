@@ -1,3 +1,12 @@
+from pyarabic.araby import strip_tashkeel, LETTERS
+import re
+import pandas as pd
+from pyarabic import araby
+from prettytable import PrettyTable
+from tqdm import tqdm
+import warnings
+
+
 class ArabicDiacritizationEvaluator:
     """
     A utility class for evaluating Arabic diacritization,
