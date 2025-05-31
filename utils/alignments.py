@@ -1,4 +1,5 @@
 from pyarabic.araby import strip_tashkeel
+from pyarabic.araby import LETTERS
 import re
 import pandas as pd
 #@title define alignment
