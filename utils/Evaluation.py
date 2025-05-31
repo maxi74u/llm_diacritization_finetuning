@@ -13,8 +13,8 @@ from datasets import load_dataset
 from pyarabic.araby import LETTERS
 from datasets import load_dataset
 from tqdm import tqdm
-from Sadeed_Evaluation import ArabicDiacritizationEvaluator
-from alignments import alignment
+from .Sadeed_Evaluation import ArabicDiacritizationEvaluator
+from .alignments import alignment
 
 def evaluation(huggingface_dataset_name:str, split:str, X_col_name:str, Y_col_name:str, Y_pred_col_name:str, token_huggingface:str=None)->str:
     """
