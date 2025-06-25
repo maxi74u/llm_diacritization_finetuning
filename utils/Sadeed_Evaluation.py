@@ -436,7 +436,7 @@ class ArabicDiacritizationEvaluator:
 
 
     @classmethod
-    def report_error_on_senenteces(cls, diacritized_sentences, ground_truth_sentences, gt_missing_diacritic_is_error = False):
+    def report_error_on_senenteces(cls, diacritized_sentences, ground_truth_sentences, gt_missing_diacritic_is_error = False, verbose = False):
         """
         Calculates and prints diacritization error metrics for a list of sentences.
 
@@ -452,10 +452,10 @@ class ArabicDiacritizationEvaluator:
         Returns:
             None
         """
-        print(f"Calculating Diacritization Errors for {len(diacritized_sentences)} sentences")
+        if verbose : print(f"Calculating Diacritization Errors for {len(diacritized_sentences)} sentences")
         Total_WER, Morph_WER, Total_DER, Morph_DER, NVW = ArabicDiacritizationEvaluator.caculate_errors_on_sentences(\
                             diacritized_sentences, ground_truth_sentences, gt_missing_diacritic_is_error= gt_missing_diacritic_is_error)
-        cls.print_pretty_table(Total_WER, Morph_WER, Total_DER, Morph_DER, NVW, gt_missing_diacritic_is_error)
+        if verbose: cls.print_pretty_table(Total_WER, Morph_WER, Total_DER, Morph_DER, NVW, gt_missing_diacritic_is_error)
         return Total_WER, Morph_WER, Total_DER, Morph_DER, NVW 
 
 
