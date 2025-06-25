@@ -27,7 +27,7 @@ def evaluation(huggingface_dataset_name:str, split:str, X_col_name:str, Y_col_na
         Y_col_name (str): The name of the column containing ground truth data.
         Y_pred_col_name (str): The name of the column containing predicted data.
         token_huggingface (str): Optional token for Hugging Face authentication, if you want to push the new dataset after alignments to Hugging Face in the same name.
-
+        verbose (bool): Optional enables or disables printing.
     Returns:
         dataset: The evaluated dataset with aligned predictions.
         Total_WER (float): The total word error rate.
